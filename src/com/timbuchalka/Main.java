@@ -3,22 +3,10 @@ package com.timbuchalka;
 public class Main {
 
     public static void main(String[] args) {
-//        numberToWords(123456789);
-//        System.out.println("*********************");
-//        numberToWords(2323);
-//        System.out.println("*********************");
-//        numberToWords(44444);
-//        System.out.println("*********************");
-//        numberToWords(55555555);
-//        System.out.println("*********************");
-//        System.out.println(getDigitCount(123));
-//        System.out.println(getDigitCount(123456789));
-//        System.out.println("**********************");
         System.out.println(reverse(-121));
         System.out.println(reverse(1212));
         System.out.println(reverse(1234));
         System.out.println(reverse(100));
-
     }
 
     public static void numberToWords(int number) {
@@ -66,6 +54,7 @@ public class Main {
     public static int reverse(int number) {   //-123456789
         int reversedNumber = 0;
         if (number < 0) {
+            reversedNumber = -1;
             number = number * -1;
             while (number > 0) {
                 int rLastDigit = number % 10;
