@@ -3,7 +3,7 @@ package com.timbuchalka;
 public class Main {
 
     public static void main(String[] args) {
-        numberToWords(10000); // One Zero Zero Zero Zero Zero
+        numberToWords(10000);
         System.out.println("**************************");
         numberToWords(20024004);
         System.out.println("**************************");
@@ -15,19 +15,8 @@ public class Main {
         if (number < 0) {
             System.out.println("Invalid Value");
         }
-        System.out.println("Number before operations is " + number);
-        System.out.println("Reversed number is " + reverse(number)); // reverse method works ok
-        int reverseCopy = reverse(number); // do we need that?
-        int zeroesCut = getDigitCount(number) - getDigitCount(reverse(number));
-        System.out.println(zeroesCut + " zeroes have been cut.");
         int initialDigitCount = getDigitCount(number);
-
-        for (int i = 1; i <= zeroesCut; i++) {
-            reverseCopy = reverseCopy * 10;
-        }
         number = reverse(number);
-        System.out.println("Number after operations is " + number);
-        System.out.println("Digit count is " + getDigitCount(number));
         for (int i = 1; i <= initialDigitCount; i++) {
             int lastDigit = number % 10;
             number = number / 10;
@@ -73,8 +62,11 @@ public class Main {
         if (number < 0) {
             return -1;
         }
+        if (number == 0) {
+            return 1;
+        }
         int counter = 0;
-        while (number > 0) {
+        while (number > 0) { // fix made on that logic, input of 0 returned digit count of 0
             number /= 10;
             counter++;
         }
@@ -98,54 +90,6 @@ public class Main {
                 reversedNumber = reversedNumber * 10 + lastDigit;
             }
         }
-
         return reversedNumber;
     }
-
-//**********************WHILE METHOD**********************
-/*
-    public static int reverse(int number) {
-        int reversedNumber = 0;
-        if (number < 0) {
-            number *= -1;
-            while (number > 0) {
-                int rLastDigit = number % 10;
-                number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
-            }
-            reversedNumber *= -1;
-        } else {
-            while (number > 0) {
-                int rLastDigit = number % 10;
-                number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
-            }
-        }
-
-        return reversedNumber;
-    }
- */
-//*****************************FOR LOOP METHOD***********************
-/*
-    public static int reverse(int number) {   //-123 and 123 issue
-        int reversedNumber = 0;
-        if (number < 0) {
-            number *= -1;
-            for (int i = 0; i < getDigitCount(number) + 1; i++) {
-                int rLastDigit = number % 10;
-                number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
-            }
-            reversedNumber *= -1;
-        } else {
-            for (int i = 0; i < getDigitCount(number) + 1; i++) { // while(
-                int rLastDigit = number % 10;
-                number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
-            }
-        }
-
-        return reversedNumber;
-    }
- */
 }
