@@ -3,8 +3,6 @@ package com.timbuchalka;
 public class Main {
 
     public static void main(String[] args) {
-//        System.out.println(reverse(-121));
-//        System.out.println("***************************");
 //        numberToWords(100000);
 //        System.out.println("**************************");
 //        numberToWords(-10000);
@@ -15,16 +13,18 @@ public class Main {
 //        System.out.println("**************************");
 //        numberToWords(1000);
 //        System.out.println("**************************");
-        System.out.println(getDigitCount(123));
-        System.out.println(getDigitCount(-123));
-        System.out.println(reverse(-121));
-        System.out.println(reverse(121));
+        System.out.println(getDigitCount(1000122));
+        System.out.println(reverse(1000122));
+        System.out.println(reverse(1234));
+        System.out.println(reverse(-1234));
     }
 
     public static void numberToWords(int number) {
         if (number < 0) {
             System.out.println("Invalid Value");
         }
+
+
         System.out.println("Number before operations is " + number);
         System.out.println("Reversed number is " + reverse(number));
 //        int reverseCopy = reverse(number);
@@ -36,6 +36,8 @@ public class Main {
 //        }
         number = reverse(number);
         System.out.println("Number after operations is " + number);
+
+
         while (number > 0) {
             int lastDigit = number % 10;
             number = number / 10;
@@ -90,19 +92,20 @@ public class Main {
         int reversedNumber = 0;
         if (number < 0) {
             number *= -1;
-            for (int i = 0; i <= getDigitCount(number) + 1; i++) {
+            while (number > 0) {
                 int rLastDigit = number % 10;
                 number /= 10;
                 reversedNumber = reversedNumber * 10 + rLastDigit;
             }
             reversedNumber *= -1;
         } else {
-            for (int i = 0; i <= getDigitCount(number) + 1; i++) {
+            while (number > 0) {
                 int rLastDigit = number % 10;
                 number /= 10;
                 reversedNumber = reversedNumber * 10 + rLastDigit;
             }
         }
+
         return reversedNumber;
     }
 
@@ -116,4 +119,27 @@ public class Main {
 //        }
 //        return reversedNumber;
 //    }
+//*****************************FOR LOOP METHOD***********************
+/*
+    public static int reverse(int number) {   //-123 and 123 issue
+        int reversedNumber = 0;
+        if (number < 0) {
+            number *= -1;
+            for (int i = 0; i < getDigitCount(number) + 1; i++) {
+                int rLastDigit = number % 10;
+                number /= 10;
+                reversedNumber = reversedNumber * 10 + rLastDigit;
+            }
+            reversedNumber *= -1;
+        } else {
+            for (int i = 0; i < getDigitCount(number) + 1; i++) { // while(
+                int rLastDigit = number % 10;
+                number /= 10;
+                reversedNumber = reversedNumber * 10 + rLastDigit;
+            }
+        }
+
+        return reversedNumber;
+    }
+ */
 }
