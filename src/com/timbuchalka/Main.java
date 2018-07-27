@@ -16,21 +16,18 @@ public class Main {
             System.out.println("Invalid Value");
         }
         System.out.println("Number before operations is " + number);
-        System.out.println("Reversed number is " + reverse(number));
-        int reverseCopy = reverse(number);
-
-
-        int zeroesCut = getDigitCount(number) - getDigitCount(reverse(number)); // or take it from the reverseCopy?
+        System.out.println("Reversed number is " + reverse(number)); // reverse method works ok
+        int reverseCopy = reverse(number); // do we need that?
+        int zeroesCut = getDigitCount(number) - getDigitCount(reverse(number));
         System.out.println(zeroesCut + " zeroes have been cut.");
+        int initialDigitCount = getDigitCount(number);
 
         for (int i = 1; i <= zeroesCut; i++) {
             reverseCopy = reverseCopy * 10;
         }
-        //number = reverse(number);
+        number = reverse(number);
         System.out.println("Number after operations is " + number);
         System.out.println("Digit count is " + getDigitCount(number));
-
-        int initialDigitCount = getDigitCount(number);
         for (int i = 1; i <= initialDigitCount; i++) {
             int lastDigit = number % 10;
             number = number / 10;
