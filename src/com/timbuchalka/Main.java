@@ -9,27 +9,32 @@ public class Main {
         System.out.println("**************************");
         numberToWords(-10000);
         System.out.println("**************************");
-        numberToWords(2002400);
+        numberToWords(20024004);
+        System.out.println("**************************");
+        numberToWords(200240000);
         System.out.println("**************************");
         numberToWords(1000);
         System.out.println("**************************");
     }
 
     public static void numberToWords(int number) {
-        System.out.println("The number is " + number);
         if (number < 0) {
             System.out.println("Invalid Value");
         }
+        System.out.println("Number before operations is " + number);
+        System.out.println("Reversed number is " + reverse(number));
 
 
-        System.out.println("The digit count is: " + getDigitCount(number));
-        int digitCount = getDigitCount(number);
-        int zeroesCut = digitCount - getDigitCount(reverse(number));
-        System.out.println("Zeroes cut = " + zeroesCut);
-        System.out.println("The reverse number is: " + reverse(number));
-
+//        int reverseCopy = reverse(number);
+//        int digitCount = getDigitCount(number);
+//        int zeroesCut = digitCount - getDigitCount(reverse(number));
+//
+//        for (int i = 1; i <= zeroesCut; i++) {
+//            reverseCopy = reverseCopy * 10;
+//        }
 
         number = reverse(number);
+        System.out.println("Number after operations is " + number);
         while (number > 0) {
             int lastDigit = number % 10;
             number = number / 10;
