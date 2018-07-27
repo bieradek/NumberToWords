@@ -4,24 +4,32 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println(reverse(-121));
-        System.out.println(reverse(1212));
-        System.out.println(reverse(1234));
-        System.out.println(reverse(100));
-        System.out.println("***********************");
-        numberToWords(1234567890);
-        System.out.println("*********");
-        numberToWords(12323);
-        System.out.println("*********");
-        numberToWords(44444);
-        System.out.println("*********");
-        numberToWords(12313);
+        System.out.println("***************************");
+        numberToWords(100000);
+        System.out.println("**************************");
+        numberToWords(-10000);
+        System.out.println("**************************");
+        numberToWords(2002400);
+        System.out.println("**************************");
+        numberToWords(1000);
         System.out.println("**************************");
     }
 
     public static void numberToWords(int number) {
+        System.out.println("The number is " + number);
         if (number < 0) {
             System.out.println("Invalid Value");
         }
+
+
+        System.out.println("The digit count is: " + getDigitCount(number));
+        int digitCount = getDigitCount(number);
+        int zeroesCut = digitCount - getDigitCount(reverse(number));
+        System.out.println("Zeroes cut = " + zeroesCut);
+        System.out.println("The reverse number is: " + reverse(number));
+
+
+        number = reverse(number);
         while (number > 0) {
             int lastDigit = number % 10;
             number = number / 10;
