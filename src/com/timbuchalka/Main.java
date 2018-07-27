@@ -3,42 +3,35 @@ package com.timbuchalka;
 public class Main {
 
     public static void main(String[] args) {
-//        numberToWords(100000);
-//        System.out.println("**************************");
-//        numberToWords(-10000);
-//        System.out.println("**************************");
-//        numberToWords(20024004);
-//        System.out.println("**************************");
-//        numberToWords(200240000);
-//        System.out.println("**************************");
-//        numberToWords(1000);
-//        System.out.println("**************************");
-        System.out.println(getDigitCount(1000122));
-        System.out.println(reverse(1000122));
-        System.out.println(reverse(1234));
-        System.out.println(reverse(-1234));
+        numberToWords(10000); // One Zero Zero Zero Zero Zero
+        System.out.println("**************************");
+        numberToWords(20024004);
+        System.out.println("**************************");
+        numberToWords(200240000);
+        System.out.println("**************************");
     }
 
     public static void numberToWords(int number) {
         if (number < 0) {
             System.out.println("Invalid Value");
         }
-
-
         System.out.println("Number before operations is " + number);
         System.out.println("Reversed number is " + reverse(number));
-//        int reverseCopy = reverse(number);
-//        int digitCount = getDigitCount(number);
-//        int zeroesCut = digitCount - getDigitCount(reverse(number));
-//
-//        for (int i = 1; i <= zeroesCut; i++) {
-//            reverseCopy = reverseCopy * 10;
-//        }
-        number = reverse(number);
+        int reverseCopy = reverse(number);
+
+
+        int zeroesCut = getDigitCount(number) - getDigitCount(reverse(number)); // or take it from the reverseCopy?
+        System.out.println(zeroesCut + " zeroes have been cut.");
+
+        for (int i = 1; i <= zeroesCut; i++) {
+            reverseCopy = reverseCopy * 10;
+        }
+        //number = reverse(number);
         System.out.println("Number after operations is " + number);
+        System.out.println("Digit count is " + getDigitCount(number));
 
-
-        while (number > 0) {
+        int initialDigitCount = getDigitCount(number);
+        for (int i = 1; i <= initialDigitCount; i++) {
             int lastDigit = number % 10;
             number = number / 10;
             switch (lastDigit) {
@@ -72,6 +65,9 @@ public class Main {
                 case 9:
                     System.out.println("Nine");
                     break;
+                default:
+                    System.out.println("Zero");
+                    break;
             }
         }
     }
@@ -93,16 +89,16 @@ public class Main {
         if (number < 0) {
             number *= -1;
             while (number > 0) {
-                int rLastDigit = number % 10;
+                int lastDigit = number % 10;
                 number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
+                reversedNumber = reversedNumber * 10 + lastDigit;
             }
             reversedNumber *= -1;
         } else {
             while (number > 0) {
-                int rLastDigit = number % 10;
+                int lastDigit = number % 10;
                 number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
+                reversedNumber = reversedNumber * 10 + lastDigit;
             }
         }
 
