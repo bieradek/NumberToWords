@@ -88,7 +88,7 @@ public class Main {
         return counter;
     }
 
-    public static int reverse(int number) {   //-123 and 123 issue
+    public static int reverse(int number) {
         int reversedNumber = 0;
         if (number < 0) {
             number *= -1;
@@ -110,15 +110,28 @@ public class Main {
     }
 
 //**********************WHILE METHOD**********************
-//    public static int reverse(int number) {   //-123 and 123 issue
-//        int reversedNumber = 0;
-//        while (number > 0) {
-//            int rLastDigit = number % 10;
-//            number /= 10;
-//            reversedNumber = reversedNumber * 10 + rLastDigit;
-//        }
-//        return reversedNumber;
-//    }
+/*
+    public static int reverse(int number) {
+        int reversedNumber = 0;
+        if (number < 0) {
+            number *= -1;
+            while (number > 0) {
+                int rLastDigit = number % 10;
+                number /= 10;
+                reversedNumber = reversedNumber * 10 + rLastDigit;
+            }
+            reversedNumber *= -1;
+        } else {
+            while (number > 0) {
+                int rLastDigit = number % 10;
+                number /= 10;
+                reversedNumber = reversedNumber * 10 + rLastDigit;
+            }
+        }
+
+        return reversedNumber;
+    }
+ */
 //*****************************FOR LOOP METHOD***********************
 /*
     public static int reverse(int number) {   //-123 and 123 issue
