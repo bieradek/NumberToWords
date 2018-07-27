@@ -7,9 +7,18 @@ public class Main {
         System.out.println(reverse(1212));
         System.out.println(reverse(1234));
         System.out.println(reverse(100));
+        System.out.println("***********************");
+        numberToWords(1234567890);
+        System.out.println("*********");
+        numberToWords(12323);
+        System.out.println("*********");
+        numberToWords(44444);
+        System.out.println("*********");
+        numberToWords(12313);
+        System.out.println("**************************");
     }
 
-    public static void numberToWords(int number) { /// asdasdsadasdasd
+    public static void numberToWords(int number) {
         if (number < 0) {
             System.out.println("Invalid Value");
         }
@@ -53,20 +62,10 @@ public class Main {
 
     public static int reverse(int number) {   //-123456789
         int reversedNumber = 0;
-        if (number < 0) {
-            reversedNumber = -1;
-            number = number * -1;
-            while (number > 0) {
-                int rLastDigit = number % 10;
-                number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
-            }
-        } else {
-            while (number > 0) {
-                int rLastDigit = number % 10;
-                number /= 10;
-                reversedNumber = reversedNumber * 10 + rLastDigit;
-            }
+        while (number > 0) {
+            int rLastDigit = number % 10;
+            number /= 10;
+            reversedNumber = reversedNumber * 10 + rLastDigit;
         }
         return reversedNumber;
     }
